@@ -1,6 +1,6 @@
 $('document').ready(function(){
      $('#peso').mask("#00.00", {reverse: true});
-     $('#altura').mask("#0.0" , {reverse: true});
+     $('#altura').mask("#0.00" , {reverse: true});
 });
 
 var listaCampos = ['peso', 'altura', 'sexo'];
@@ -15,7 +15,10 @@ function calcularPeso(){
         var altura = $('#altura').val();
         var sexo = $('#sexo').val();
         var imc = calcularImc(peso,altura);
-        verificarImc(imc,sexo);
+        var mensagem = verificarImc(imc,sexo);
+        $('#result').html(mensagem);
+        $('#modalResultado').modal('show');
+        
     }
     else{
         $('.alert').removeClass('hide');
@@ -36,7 +39,7 @@ function validarCamposObrigatorios(){
 
 
 function calcularImc(peso,altura){
-    return (peso/altura*altura);
+    return (peso/(altura*altura));
 }
 
 function verificarImc(imc,sexo){
@@ -58,4 +61,13 @@ function verificarImc(imc,sexo){
     } else if( imc >= tabela[3]) {
         mensagem = "Obeso";
     }
+
+    return mensagem;
+}
+
+function fecharModal(){
+    $('#modalResultado').modal('hide');
+     var peso = $('#peso').val('');
+     var altura = $('#altura').val('');
+     var sexo = $('#sexo').val('');
 }
