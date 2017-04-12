@@ -10,9 +10,52 @@
   
 </head>
 <body>
+  <div class="alert alert-warning hide">
+    <strong>Campo não preenchido!</strong> Um dos campos obrigatórios não foram preenchidos
+  </div>
 
+  <div class="text-center">
+  <h1>Calculo de IMC</h1>
+  </br>
+  </br>
+    <form class="navbar-form navbar-center">
+      <div class="row">
+        <label for="peso" class="control-label">Peso</label>
+        <div class="input-group">
+          <input type="text" id="peso" class="form-control" placeholder="Peso" maxlength="4">
+          <span class="input-group-addon">KG</span>
+        </div>
+      </div>
+      </br>
 
+      <div class="row">
+        <label for="altura" class="control-label">Altura</label>
+        <div class="input-group">
+          <input type="text" id="altura" class="form-control" placeholder="Altura" maxlength="3" >
+          <span class="input-group-addon">MT</span>
+        </div>
+      </div>
+      </br>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="Sexo ">Sexo: </label>   
+          <select id="sexo" class="form-control">
+              <option value="">Selecione</option>
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
+            </select>
+
+        </div>
+      </div>
+      </br>
+
+      <button type="button" class="btn btn-primary navbar-btn" onclick="calcularPeso(); return false">Calcular</button>
+
+    </form>
+  </div>
    <script src="js/jquery/jquery-3.2.0.min.js"></script>
+   <script src="js/jquery/jquery.mask.min.js"></script>
    <script src="js/bootstrap/bootstrap.min.js"></script>
    <script src="js/app.js"></script>
   </body>
